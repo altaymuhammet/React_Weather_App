@@ -1,23 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import useWeather from "./components/useWeather/useWeather";
+import WeatherForm from "./components/form/WeatherForm";
+import Loader from "./components/Loader/Loader";
+import CurrentWeather from "./components/CurrentWeather/CurrentWeather";
 
 function App() {
+  const {
+    form,
+    setForm,
+    currentWeather,
+    setCurrentWeather,
+    loader,
+    error,
+    setError,
+    submitRequest,
+  } = useWeather();
+
+  const locationHandler = (location) => {
+    submitRequest(location.trim());
+  };
+
+  const closeHandler = (state) => {
+    setCurrentWeather(state);
+    setForm(true);
+    setError(false);
+  };
+
+  const inputChangeHandler = (state) => {
+    setError(state);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1 style={{ color: "white", marginBottom: "40px" }}>
+        Weather{" "}
+        <span style={{ fontWeight: "bold", color: "#112b3c" }}>App</span>{" "}
+      </h1>
+      {loader && <Loader />}
+      {form && (
+        <WeatherForm
+          data={locationHandler}
+          err={error}
+          changeHandler={inputChangeHandler}
+        />
+      )}
+      {currentWeather && (
+        <CurrentWeather data={currentWeather} close={closeHandler} />
+      )}
     </div>
   );
 }

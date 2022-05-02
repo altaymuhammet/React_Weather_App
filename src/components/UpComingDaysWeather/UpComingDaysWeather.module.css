@@ -1,0 +1,31 @@
+.upcomingDays {
+  height: 160px;
+  width: 95%;
+  margin: 0 auto;
+  padding: 0;
+  padding-bottom: 1rem;
+  list-style: none;
+  color: #222;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: nowrap;
+}
+
+.item {
+  flex: 1;
+  margin-right: 5px;
+  height: 160px;
+  border-radius: 10px;
+  background-color: #F9EBC8;
+}
+
+.item:hover {
+  background-color: #fff;
+  color: #333
+}
+
+.img {
+  width: 40%;
+}

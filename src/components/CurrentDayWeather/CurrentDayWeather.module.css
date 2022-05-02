@@ -1,0 +1,21 @@
+.current {
+    width: 100%;
+    position: absolute;
+    border-radius: 50px;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+    z-index: 999;
+}
+
+.imgSrc {
+    width: 40%;
+}
+
+.bottomOfCurrentDay {
+    width: 100%;
+    padding: 10px;
+    margin-top: 50px;
+    text-align: left;
+}
+
